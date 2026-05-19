@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA — The Intelligence You Wear</title>
+  <meta name="description" content="AURA is the world's first AI-powered neural wearable. Think faster. Live better." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-mode" data-theme="dark">
+
+  <!-- Loading Screen -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo">AURA</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Cursor -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- Particles Canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Mouse Glow -->
+  <div id="mouse-glow" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="AURA home">
+        <span class="logo-mark">◈</span>
+        <span class="logo-text">AURA</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#specs" class="nav-link">Specs</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <span class="theme-icon-dark">◑</span>
+          <span class="theme-icon-light">◐</span>
+        </button>
+        <a href="#pricing" class="btn btn-nav">Pre-order</a>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#features" class="mobile-link">Features</a></li>
+        <li><a href="#specs" class="mobile-link">Specs</a></li>
+        <li><a href="#testimonials" class="mobile-link">Reviews</a></li>
+        <li><a href="#pricing" class="mobile-link">Pricing</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+      <a href="#pricing" class="btn btn-primary mobile-cta">Pre-order Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="home" class="hero">
+      <div class="hero-bg">
+        <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-eyebrow reveal-up">
+          <span class="eyebrow-dot"></span>
+          Neural AI Wearable · Est. 2025
+        </div>
+
+        <h1 class="hero-headline reveal-up" style="--delay: 0.1s">
+          The Intelligence<br />
+          <em>You Wear.</em>
+        </h1>
+
+        <p class="hero-sub reveal-up" style="--delay: 0.2s">
+          AURA syncs with your neural rhythms to amplify focus,
+          predict fatigue, and surface insights — before you even ask.
+        </p>
+
+        <div class="hero-cta reveal-up" style="--delay: 0.3s">
+          <a href="#pricing" class="btn btn-primary">
+            <span>Pre-order — $299</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#features" class="btn btn-ghost">
+            <span>Explore Features</span>
+          </a>
+        </div>
+
+        <div class="hero-badges reveal-up" style="--delay: 0.4s">
+          <div class="badge">
+            <span class="badge-num">98%</span>
+            <span class="badge-label">Accuracy</span>
+          </div>
+          <div class="badge-divider" aria-hidden="true"></div>
+          <div class="badge">
+            <span class="badge-num">72h</span>
+            <span class="badge-label">Battery Life</span>
+          </div>
+          <div class="badge-divider" aria-hidden="true"></div>
+          <div class="badge">
+            <span class="badge-num">0.3ms</span>
+            <span class="badge-label">Response Time</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Mockup -->
+      <div class="hero-visual reveal-up" style="--delay: 0.2s" aria-label="AURA wearable device illustration">
+        <div class="product-ring product-ring-outer" aria-hidden="true"></div>
+        <div class="product-ring product-ring-mid" aria-hidden="true"></div>
+        <div class="product-core" aria-hidden="true">
+          <div class="product-face">
+            <div class="product-display">
+              <div class="product-pulse" aria-hidden="true"></div>
+              <span class="product-label">AURA</span>
+              <div class="product-lines" aria-hidden="true">
+                <div class="product-line"></div>
+                <div class="product-line short"></div>
+                <div class="product-line"></div>
+                <div class="product-line med"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-glow" aria-hidden="true"></div>
+        <div class="floating-card card-1 reveal-up" style="--delay: 0.5s">
+          <div class="fc-icon">⚡</div>
+          <div class="fc-content">
+            <div class="fc-title">Focus Mode</div>
+            <div class="fc-value">Active · 94%</div>
+          </div>
+        </div>
+        <div class="floating-card card-2 reveal-up" style="--delay: 0.6s">
+          <div class="fc-icon">🧠</div>
+          <div class="fc-content">
+            <div class="fc-title">Neural Sync</div>
+            <div class="fc-value">Optimal</div>
+          </div>
+        </div>
+        <div class="floating-card card-3 reveal-up" style="--delay: 0.7s">
+          <div class="fc-icon">🌙</div>
+          <div class="fc-content">
+            <div class="fc-title">Recovery</div>
+            <div class="fc-value">87 / 100</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <a href="#features" class="scroll-hint reveal-up" style="--delay: 0.8s" aria-label="Scroll to features">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FEATURES SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow reveal-up">Features</div>
+          <h2 class="section-title reveal-up" style="--delay: 0.1s">Engineered for<br /><em>the exceptional.</em></h2>
+          <p class="section-sub reveal-up" style="--delay: 0.2s">Every detail of AURA is crafted to disappear into your life — while silently amplifying everything you do.</p>
+        </div>
+
+        <div class="features-grid">
+
+          <div class="feature-card feature-large reveal-up" style="--delay: 0s">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">◈</div>
+            </div>
+            <h3 class="feature-title">Neural Intelligence</h3>
+            <p class="feature-desc">Proprietary bio-signal processing reads your cognitive state 200× per second. It learns your patterns, predicts your peaks, and quietly guides you toward flow.</p>
+            <div class="feature-stat">
+              <span class="stat-num">200×</span>
+              <span class="stat-label">per second sampling</span>
+            </div>
+          </div>
+
+          <div class="feature-card reveal-up" style="--delay: 0.1s">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">⟢</div>
+            </div>
+            <h3 class="feature-title">Predictive Fatigue</h3>
+            <p class="feature-desc">Know you're burning out 40 minutes before it happens. AURA's fatigue model catches decline before you feel it.</p>
+          </div>
+
+          <div class="feature-card reveal-up" style="--delay: 0.15s">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">⌖</div>
+            </div>
+            <h3 class="feature-title">Focus Zones</h3>
+            <p class="feature-desc">Ambient soundscapes, binaural nudges, and breathing cues curated to your current state — automatically.</p>
+          </div>
+
+          <div class="feature-card reveal-up" style="--delay: 0.2s">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">◯</div>
+            </div>
+            <h3 class="feature-title">Sleep Architecture</h3>
+            <p class="feature-desc">AURA maps your full sleep cycle with clinical accuracy and generates a personalized recovery protocol each morning.</p>
+          </div>
+
+          <div class="feature-card feature-wide reveal-up" style="--delay: 0.25s">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">⬡</div>
+            </div>
+            <h3 class="feature-title">Private by Design</h3>
+            <p class="feature-desc">All neural processing happens on-device. Your bio-data never leaves AURA. No cloud. No compromises. Certified by independent security auditors.</p>
+            <div class="feature-tags">
+              <span class="tag">On-device AI</span>
+              <span class="tag">Zero telemetry</span>
+              <span class="tag">GDPR compliant</span>
+              <span class="tag">Open audit</span>
+            </div>
+          </div>
+
+          <div class="feature-card reveal-up" style="--delay: 0.3s">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">⚡</div>
+            </div>
+            <h3 class="feature-title">72h Battery</h3>
+            <p class="feature-desc">Lasts three full days on a single 12-minute wireless charge. Because stopping shouldn't be part of your workflow.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SHOWCASE SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="showcase" class="showcase">
+      <div class="container">
+
+        <div class="showcase-row reveal-up">
+          <div class="showcase-visual">
+            <div class="showcase-device">
+              <div class="showcase-screen">
+                <div class="showcase-ui">
+                  <div class="sui-header">
+                    <span class="sui-time">09:41</span>
+                    <span class="sui-label">Focus Mode</span>
+                  </div>
+                  <div class="sui-wave" aria-hidden="true">
+                    <svg viewBox="0 0 200 60" preserveAspectRatio="none">
+                      <path d="M0,30 C20,10 40,50 60,30 C80,10 100,50 120,30 C140,10 160,50 180,30 C190,20 195,35 200,30" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <div class="sui-stats">
+                    <div class="sui-stat">
+                      <span class="sui-stat-n">94</span>
+                      <span class="sui-stat-l">Focus</span>
+                    </div>
+                    <div class="sui-stat">
+                      <span class="sui-stat-n">72</span>
+                      <span class="sui-stat-l">HRV</span>
+                    </div>
+                    <div class="sui-stat">
+                      <span class="sui-stat-n">98</span>
+                      <span class="sui-stat-l">SpO₂</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-glow" aria-hidden="true"></div>
+          </div>
+          <div class="showcase-content">
+            <div class="section-eyebrow">Real-time Intelligence</div>
+            <h2 class="showcase-title">Your mind,<br /><em>quantified.</em></h2>
+            <p class="showcase-desc">AURA's companion app surfaces your cognitive metrics in beautiful, actionable clarity. See focus trends, sleep quality, and predicted peak hours — all at a glance.</p>
+            <ul class="showcase-list">
+              <li>
+                <span class="sl-icon">✦</span>
+                <span>Live focus scoring updated every 5 seconds</span>
+              </li>
+              <li>
+                <span class="sl-icon">✦</span>
+                <span>Weekly cognitive fingerprint reports</span>
+              </li>
+              <li>
+                <span class="sl-icon">✦</span>
+                <span>AI-generated daily optimization plan</span>
+              </li>
+            </ul>
+            <a href="#pricing" class="btn btn-primary">Get AURA
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="showcase-row showcase-row-reverse reveal-up" style="--delay: 0.1s">
+          <div class="showcase-visual">
+            <div class="showcase-device showcase-device-alt">
+              <div class="alt-rings" aria-hidden="true">
+                <div class="alt-ring r1"></div>
+                <div class="alt-ring r2"></div>
+                <div class="alt-ring r3"></div>
+                <div class="alt-center">
+                  <span>AURA</span>
+                  <div class="alt-pulse"></div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-glow showcase-glow-alt" aria-hidden="true"></div>
+          </div>
+          <div class="showcase-content">
+            <div class="section-eyebrow">Always with you</div>
+            <h2 class="showcase-title">Designed to<br /><em>disappear.</em></h2>
+            <p class="showcase-desc">Weighing just 18g, AURA's titanium body sits flush against your wrist. Sapphire crystal lens. Ceramic back. Water-resistant to 50m. Worn by founders, athletes, and artists.</p>
+            <ul class="showcase-list">
+              <li>
+                <span class="sl-icon">✦</span>
+                <span>18g aircraft-grade titanium chassis</span>
+              </li>
+              <li>
+                <span class="sl-icon">✦</span>
+                <span>Sapphire crystal display, 50m waterproof</span>
+              </li>
+              <li>
+                <span class="sl-icon">✦</span>
+                <span>Three colorways: Void, Ivory, Obsidian</span>
+              </li>
+            </ul>
+            <a href="#specs" class="btn btn-ghost">View Full Specs</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SPECS SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="specs" class="specs">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow reveal-up">Specifications</div>
+          <h2 class="section-title reveal-up" style="--delay: 0.1s">Built to the<br /><em>last detail.</em></h2>
+        </div>
+        <div class="specs-grid">
+          <div class="spec-group reveal-up" style="--delay: 0s">
+            <h3 class="spec-group-title">Hardware</h3>
+            <div class="spec-items">
+              <div class="spec-item">
+                <span class="spec-key">Processor</span>
+                <span class="spec-val">AURA Neural Chip N1</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Display</span>
+                <span class="spec-val">Always-on AMOLED, 450 nit</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Material</span>
+                <span class="spec-val">Grade-5 Titanium</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Weight</span>
+                <span class="spec-val">18g (with band)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Water Resistance</span>
+                <span class="spec-val">50m / 5ATM</span>
+              </div>
+            </div>
+          </div>
+          <div class="spec-group reveal-up" style="--delay: 0.1s">
+            <h3 class="spec-group-title">Sensors</h3>
+            <div class="spec-items">
+              <div class="spec-item">
+                <span class="spec-key">Neural EEG</span>
+                <span class="spec-val">8-channel dry electrode</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Heart Rate</span>
+                <span class="spec-val">Optical PPG, ±1 BPM</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">SpO₂</span>
+                <span class="spec-val">Red/IR diode, ±1%</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Motion</span>
+                <span class="spec-val">6-axis IMU, 200Hz</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Skin Temp</span>
+                <span class="spec-val">±0.05°C accuracy</span>
+              </div>
+            </div>
+          </div>
+          <div class="spec-group reveal-up" style="--delay: 0.2s">
+            <h3 class="spec-group-title">Performance</h3>
+            <div class="spec-items">
+              <div class="spec-item">
+                <span class="spec-key">Battery</span>
+                <span class="spec-val">72 hours typical</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Charge Time</span>
+                <span class="spec-val">12 min (magnetic)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Connectivity</span>
+                <span class="spec-val">BT 5.3 · UWB · NFC</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">AI Latency</span>
+                <span class="spec-val">&lt;0.3ms on-device</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">OS Support</span>
+                <span class="spec-val">iOS 16+ · Android 12+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TESTIMONIALS SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow reveal-up">Reviews</div>
+          <h2 class="section-title reveal-up" style="--delay: 0.1s">Worn by people who<br /><em>don't settle.</em></h2>
+        </div>
+
+        <div class="testimonials-track" id="testimonials-track" role="list">
+
+          <div class="testimonial-card reveal-up" style="--delay: 0s" role="listitem">
+            <div class="tcard-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="tcard-quote">"AURA changed how I think about deep work. I now know exactly when I'm at peak cognitive capacity — and I use those windows ruthlessly."</blockquote>
+            <div class="tcard-author">
+              <div class="tcard-avatar" aria-hidden="true">SL</div>
+              <div class="tcard-meta">
+                <span class="tcard-name">Sarah Lin</span>
+                <span class="tcard-role">Founder, Helix AI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-up" style="--delay: 0.1s" role="listitem">
+            <div class="tcard-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="tcard-quote">"As an endurance athlete, recovery is everything. AURA's sleep architecture data is more accurate than any clinical tool I've used — and it fits under my watch tan line."</blockquote>
+            <div class="tcard-author">
+              <div class="tcard-avatar" aria-hidden="true">MR</div>
+              <div class="tcard-meta">
+                <span class="tcard-name">Marcus Reed</span>
+                <span class="tcard-role">Olympic Triathlete</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-up" style="--delay: 0.2s" role="listitem">
+            <div class="tcard-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="tcard-quote">"I've reviewed every AI wearable on the market. AURA is the first one that actually earns the word 'intelligence'. The latency is absurd — it feels like it reads your mind."</blockquote>
+            <div class="tcard-author">
+              <div class="tcard-avatar" aria-hidden="true">JK</div>
+              <div class="tcard-meta">
+                <span class="tcard-name">James Kwon</span>
+                <span class="tcard-role">Editor, Wired Future</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-up" style="--delay: 0.3s" role="listitem">
+            <div class="tcard-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="tcard-quote">"I was skeptical. Six weeks later I've restructured my entire work schedule around AURA's predictions. My output is up 30% and I feel less tired than I have in years."</blockquote>
+            <div class="tcard-author">
+              <div class="tcard-avatar" aria-hidden="true">AP</div>
+              <div class="tcard-meta">
+                <span class="tcard-name">Ana Patel</span>
+                <span class="tcard-role">CTO, Luminary Labs</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="testimonials-nav" aria-label="Testimonial navigation">
+          <button class="tnav-btn" id="tnav-prev" aria-label="Previous testimonial">←</button>
+          <div class="tnav-dots" id="tnav-dots" role="tablist"></div>
+          <button class="tnav-btn" id="tnav-next" aria-label="Next testimonial">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PRICING SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow reveal-up">Pricing</div>
+          <h2 class="section-title reveal-up" style="--delay: 0.1s">One device.<br /><em>Infinite clarity.</em></h2>
+          <div class="pricing-toggle reveal-up" style="--delay: 0.2s">
+            <button class="ptoggle-btn active" id="pt-monthly" aria-pressed="true">Monthly</button>
+            <button class="ptoggle-btn" id="pt-yearly" aria-pressed="false">Yearly <span class="ptoggle-save">Save 20%</span></button>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+
+          <div class="pricing-card reveal-up" style="--delay: 0s">
+            <div class="pcard-header">
+              <div class="pcard-name">Essential</div>
+              <div class="pcard-price">
+                <span class="pcard-currency">$</span>
+                <span class="pcard-amount" data-monthly="9" data-yearly="7">9</span>
+                <span class="pcard-period">/mo</span>
+              </div>
+              <div class="pcard-sub">Hardware sold separately</div>
+            </div>
+            <ul class="pcard-features" role="list">
+              <li class="pf-item pf-yes">Neural monitoring · 24h history</li>
+              <li class="pf-item pf-yes">Sleep tracking</li>
+              <li class="pf-item pf-yes">Focus score</li>
+              <li class="pf-item pf-yes">Basic daily insights</li>
+              <li class="pf-item pf-no">Predictive fatigue</li>
+              <li class="pf-item pf-no">Cognitive fingerprint</li>
+              <li class="pf-item pf-no">API access</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost pcard-btn">Get Started</a>
+          </div>
+
+          <div class="pricing-card pricing-card-featured reveal-up" style="--delay: 0.1s">
+            <div class="pcard-badge">Most Popular</div>
+            <div class="pcard-header">
+              <div class="pcard-name">Neural Pro</div>
+              <div class="pcard-price">
+                <span class="pcard-currency">$</span>
+                <span class="pcard-amount" data-monthly="29" data-yearly="23">29</span>
+                <span class="pcard-period">/mo</span>
+              </div>
+              <div class="pcard-sub">AURA device included</div>
+            </div>
+            <ul class="pcard-features" role="list">
+              <li class="pf-item pf-yes">Everything in Essential</li>
+              <li class="pf-item pf-yes">Predictive fatigue alerts</li>
+              <li class="pf-item pf-yes">Cognitive fingerprint</li>
+              <li class="pf-item pf-yes">Unlimited history</li>
+              <li class="pf-item pf-yes">AI daily optimization plan</li>
+              <li class="pf-item pf-yes">Priority support</li>
+              <li class="pf-item pf-no">API access</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary pcard-btn">Pre-order Now</a>
+          </div>
+
+          <div class="pricing-card reveal-up" style="--delay: 0.2s">
+            <div class="pcard-header">
+              <div class="pcard-name">Enterprise</div>
+              <div class="pcard-price">
+                <span class="pcard-currency">$</span>
+                <span class="pcard-amount" data-monthly="99" data-yearly="79">99</span>
+                <span class="pcard-period">/mo</span>
+              </div>
+              <div class="pcard-sub">Per seat · min. 10 seats</div>
+            </div>
+            <ul class="pcard-features" role="list">
+              <li class="pf-item pf-yes">Everything in Neural Pro</li>
+              <li class="pf-item pf-yes">Team analytics dashboard</li>
+              <li class="pf-item pf-yes">API & webhook access</li>
+              <li class="pf-item pf-yes">SSO / SAML</li>
+              <li class="pf-item pf-yes">Dedicated success manager</li>
+              <li class="pf-item pf-yes">SLA: 99.99% uptime</li>
+              <li class="pf-item pf-yes">Custom data retention</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost pcard-btn">Contact Sales</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CTA BAND
+    ═══════════════════════════════════════════ -->
+    <section class="cta-band reveal-up">
+      <div class="container">
+        <div class="cta-band-inner">
+          <div class="cta-band-orb" aria-hidden="true"></div>
+          <h2 class="cta-band-title">Ready to think<br /><em>at a different level?</em></h2>
+          <p class="cta-band-sub">Join 12,000+ early adopters. Ship begins Q1 2026.</p>
+          <a href="#pricing" class="btn btn-primary btn-large">Reserve Your AURA
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CONTACT SECTION
+    ═══════════════════════════════════════════ -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-content reveal-up">
+            <div class="section-eyebrow">Contact</div>
+            <h2 class="section-title">Questions?<br /><em>Let's talk.</em></h2>
+            <p class="contact-desc">Our team responds within 4 hours. For enterprise inquiries, reach us directly at <a href="mailto:sales@aura.io" class="inline-link">sales@aura.io</a></p>
+            <div class="contact-socials">
+              <a href="#" class="social-link" aria-label="Twitter / X">𝕏</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="Instagram">◻</a>
+            </div>
+          </div>
+          <form class="contact-form reveal-up" style="--delay: 0.15s" id="contact-form" novalidate aria-label="Contact form">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-name">Name</label>
+                <input type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" placeholder="you@example.com" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" name="subject" placeholder="How can we help?" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="5" placeholder="Tell us more..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="form-submit">
+              <span id="form-btn-text">Send Message</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <div class="form-success" id="form-success" aria-live="polite" hidden>
+              ✦ Message sent — we'll be in touch soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo footer-logo" aria-label="AURA home">
+            <span class="logo-mark">◈</span>
+            <span class="logo-text">AURA</span>
+          </a>
+          <p class="footer-tagline">The intelligence you wear.</p>
+          <div class="footer-newsletter">
+            <label for="newsletter-email" class="sr-only">Email for newsletter</label>
+            <input type="email" id="newsletter-email" placeholder="Enter your email" aria-label="Newsletter email" />
+            <button class="newsletter-btn" aria-label="Subscribe">→</button>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#specs">Specs</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Company</h4>
+          <ul role="list">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Legal</h4>
+          <ul role="list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 AURA Technologies, Inc. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter / X">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">◻</a>
+          <a href="#" aria-label="GitHub">⌥</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
